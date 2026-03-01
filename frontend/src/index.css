@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800 font-['Inter'] antialiased min-h-screen;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-['Poppins'] font-bold;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white border border-slate-200 shadow-sm backdrop-blur-md rounded-2xl transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply bg-slate-50 border-slate-300;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-accent-purple px-6 py-3 rounded-xl font-semibold active:scale-95 transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+
+  .btn-outline {
+    @apply border border-slate-300 px-6 py-3 rounded-xl font-semibold hover:bg-slate-50 transition-all duration-300;
+  }
+
+  .nav-link {
+    @apply text-slate-500 hover:text-slate-900 transition-colors duration-200 relative py-2;
+  }
+
+  .nav-link.active {
+    @apply text-slate-900;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full hover:bg-slate-600 transition-colors;
+  }
+}
+
+/* Calendar Custom Styles (Google Calendar Style) */
+.rbc-calendar {
+  @apply text-slate-800 border-none font-['Inter'] !important;
+}
+
+.rbc-month-view {
+  @apply border border-slate-200 rounded-xl overflow-hidden shadow-lg bg-white !important;
+}
+
+.rbc-header {
+  @apply py-3 border-b border-l-0 border-r-0 border-slate-200 text-slate-500 font-semibold font-['Poppins'] tracking-wider text-sm bg-slate-50/50 !important;
+}
+
+.rbc-month-row {
+  @apply border-t border-slate-200 min-h-[100px] hover:bg-white/[0.02] transition-colors !important;
+}
+
+.rbc-day-bg {
+  @apply border-l border-slate-200 transition-colors !important;
+}
+
+.rbc-day-bg:hover {
+  @apply bg-slate-50 !important;
+}
+
+.rbc-date-cell {
+  @apply p-2 font-medium text-sm text-slate-500 text-right pr-3 !important;
+}
+
+.rbc-date-cell.rbc-now {
+  @apply font-bold !important;
+}
+
+.rbc-date-cell.rbc-now>a {
+  @apply bg-primary text-white w-7 h-7 rounded-full inline-flex items-center justify-center leading-none shadow-md shadow-primary/20 !important;
+}
+
+.rbc-off-range-bg {
+  @apply bg-slate-50 !important;
+}
+
+.rbc-today {
+  @apply bg-primary/5 !important;
+}
+
+.rbc-event {
+  @apply rounded-md border-none shadow-sm px-2 py-1 text-xs font-medium mx-1 mb-1 truncate cursor-pointer hover:opacity-90 hover:shadow-md transition-all duration-200 !important;
+}
+
+.rbc-event-content {
+  @apply truncate leading-tight !important;
+}
+
+.rbc-show-more {
+  @apply text-primary font-semibold text-xs mt-1 hover:underline ml-2 !important;
+}
+
+/* Agenda view overrides */
+.rbc-agenda-view table.rbc-agenda-table {
+  @apply border-collapse border border-slate-200 rounded-xl overflow-hidden bg-white shadow-lg !important;
+}
+
+.rbc-agenda-view table.rbc-agenda-table tbody>tr>td {
+  @apply border border-slate-200 p-4 font-['Inter'] text-sm !important;
+}
+
+.rbc-agenda-view table.rbc-agenda-table thead>tr>th {
+  @apply border border-slate-200 p-4 font-bold text-slate-500 font-['Poppins'] text-left !important;
+}
+
+/* DatePicker Custom Styles */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker {
+  @apply bg-white border border-slate-200 rounded-xl font-['Inter'] shadow-2xl !important;
+}
+
+.react-datepicker__header {
+  @apply bg-white shadow-sm border-b border-slate-200 rounded-t-xl py-4 !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  @apply text-slate-900 font-['Poppins'] font-bold !important;
+}
+
+.react-datepicker__day-name {
+  @apply text-slate-500 font-bold !important;
+}
+
+.react-datepicker__day,
+.react-datepicker__time-name {
+  @apply text-slate-700 hover:bg-slate-50 rounded-lg transition-colors !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range,
+.react-datepicker__year-text--selected,
+.react-datepicker__year-text--in-selecting-range,
+.react-datepicker__year-text--in-range {
+  @apply bg-primary text-white hover:bg-primary-glow !important;
+}
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  @apply bg-primary text-white !important;
+}
+
+.react-datepicker__triangle {
+  display: none !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  @apply border-slate-400 !important;
+}
+
+.react-datepicker__navigation:hover *::before {
+  @apply border-white !important;
+}
+
+.react-datepicker__close-icon::after {
+  @apply bg-slate-50 text-slate-900 hover:bg-white/20 transition-all !important;
+}
